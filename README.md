@@ -53,5 +53,4 @@ bash ./scripts/long_term_forecast/ECL_script/Mamba.sh
 If you have any questions, feel free to either initiate an *Issue* or contact us by Email (Email: *fengpeilin@buaa.edu.cn*).
 
 ## ❤️ Community efforts
-* Our codebase is built upon the [Time-Series-Library](https://github.com/thuml/Time-Series-Library) project. Great work!
->>>>>>> 7cb32ea4b1edcacb6693bb23b5afa438951420cf
+* Our codebase and data source is built upon the [Time-Series-Library](https://github.com/thuml/Time-Series-Library) project. Great work!
