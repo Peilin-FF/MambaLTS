@@ -1,8 +1,6 @@
 # MambaLTS
-<<<<<<< HEAD
 This is a Library for ultilizing Mamba architecture to analyze Long Time Series Tasks.
 
-=======
 The repo is the implementation for analysing Long Time Series Tasks using Mamba1 \& Mamba2 architecture:
 ## &#x1F389; News
 * **[2024.08.15]**  We find a good set of hyperparameters for Mamba1, Mamba2 
