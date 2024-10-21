@@ -1,2 +1,2 @@
-# MambaLTS
-Ultilize Mamba architecture in Long Time Series Analysis
+# Mamba-Library
+This is a Library for Mamba application
