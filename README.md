@@ -21,7 +21,7 @@ cd MambaLTS
 conda create -n MambaLTS python=3.10 -y
 conda activate MambaLTS
 pip install --upgrade pip 
-pip install -e .
+pip install -r requirements.txt
 ```
 
 3. Install Environment
@@ -37,7 +37,17 @@ wget https://github.com/Dao-AILab/causal-conv1d/releases/download/v1.4.0/causal_
 After all the work, you need to pip install triton==2.3.0 again, because there is a false version triton==2.0.0 bug in mamba-ssm package.
 ```Shell
 pip install triton==2.3.0
+pip install sktime==0.16.1
 ```
+Different machines have different situations, pip install according to the traceback prompts is a necessary method.
+
+4.Prepare Data. 
+You can obtain the well pre-processed datasets from [[Google Drive]](https://drive.google.com/drive/folders/13Cg1KYOlzM5C7K8gK8NfC-F3EYxkM3D2?usp=sharing) or [[Baidu Drive]](https://pan.baidu.com/s/1r3KhGd0Q9PJIUZdfEYoymg?pwd=i9iy), Then place the downloaded data in the folder`./dataset`.
+
+5.Train and evaluate model. 
+
+We provide the experiment scripts models under the folder `./scripts/`. You can reproduce the experiment results as the following examples:
+bash ./scripts/long_term_forecast/ECL_script/Mamba.sh
 
 ## Contact
 If you have any questions, feel free to either initiate an *Issue* or contact us by Email (Email: *fengpeilin@buaa.edu.cn*).
