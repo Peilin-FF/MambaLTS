@@ -1,2 +1,2 @@
 # MambaLTS
-Ultilize Mamba in Long Time Series Predcition
+Ultilize Mamba architecture in Long Time Series Analysis
