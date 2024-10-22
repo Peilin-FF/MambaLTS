@@ -1,6 +1,6 @@
 import os
 import torch
-from models import MambaSimple,Mamba2_LN,Mamba2_RMS,Mamba,Mamba2_Norm
+from models import Mamba1, Mamba2, MambaSimple
 
 
 class Exp_Basic(object):
@@ -8,10 +8,8 @@ class Exp_Basic(object):
         self.args = args
         self.model_dict = {
             'MambaSimple': MambaSimple,
-            'Mamba': Mamba,
-            'Mamba2_RMS':Mamba2_RMS,
-            'Mamba2_LN':Mamba2_LN,
-            'Mamba2_Norm':Mamba2_Norm,
+            'Mamba': Mamba1,
+            'Mamba2':Mamba2,
         }
         self.device = self._acquire_device()
         self.model = self._build_model().to(self.device)

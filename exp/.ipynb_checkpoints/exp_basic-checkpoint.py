@@ -3,7 +3,7 @@ import torch
 from models import Autoformer, Transformer, TimesNet, Nonstationary_Transformer, DLinear, FEDformer, \
     Informer, LightTS, Reformer, ETSformer, Pyraformer, PatchTST, MICN, Crossformer, FiLM, iTransformer, \
     Koopa, TiDE, FreTS, TimeMixer, TSMixer, SegRNN, MambaSimple, TemporalFusionTransformer,Mamba2_BN, \
-    Mamba2_GN,Mamba2_IN,Mamba2_LN,Mamba2_RMS,Mamba
+    Mamba2_GN,Mamba2_IN,Mamba2_LN,Mamba2,Mamba
 
 
 class Exp_Basic(object):
@@ -35,7 +35,7 @@ class Exp_Basic(object):
             'SegRNN': SegRNN,
             'TemporalFusionTransformer': TemporalFusionTransformer,
             'Mamba': Mamba,
-            'Mamba2_RMS':Mamba2_RMS,
+            'Mamba2':Mamba2,
             'Mamba2_BN':Mamba2_BN,
             'Mamba2_LN':Mamba2_LN,
             'Mamba2_GN':Mamba2_GN,

@@ -27,7 +27,6 @@ try:
 except ImportError:
     RMSNorm, layer_norm_fn, rms_norm_fn = None, None, None
     
-from NormSelection import NormSelection
 
 class Mamba(nn.Module):
     def __init__(
@@ -48,10 +47,6 @@ class Mamba(nn.Module):
         layer_idx=None,
         device=None,
         dtype=None,
-        T=5,
-        num_channels=8,
-        num_groups=4,  # New parameter for GroupNorm
-        norm_type = 'None'
     ):
         factory_kwargs = {"device": device, "dtype": dtype}
         super().__init__()
@@ -63,11 +58,6 @@ class Mamba(nn.Module):
         self.dt_rank = math.ceil(self.d_model / 16) if dt_rank == "auto" else dt_rank
         self.use_fast_path = use_fast_path
         self.layer_idx = layer_idx
-        self.T = T
-        self.num_groups = num_groups
-        print("norm_type:",norm_type)
-        self.norm_type = norm_type
-        self.num_channels = num_channels
         self.in_proj = nn.Linear(self.d_model, self.d_inner * 2, bias=bias, **factory_kwargs)
 
         self.conv1d = nn.Conv1d(
@@ -124,7 +114,6 @@ class Mamba(nn.Module):
         self.D._no_weight_decay = True
 
         self.out_proj = nn.Linear(self.d_inner, self.d_model, bias=bias, **factory_kwargs)
-        self.norm =NormSelection(norm_type=self.norm_type,num_features=self.d_inner,num_channels=self.num_channels,num_groups=self.num_groups,T=self.T,eps=1e-5,momentum=0.1,affine=True,dim=3)
     
     def forward(self, hidden_states, inference_params=None):
         """
@@ -213,11 +202,6 @@ class Mamba(nn.Module):
                 ssm_state.copy_(last_state)
             y = rearrange(y, "b d l -> b l d")
             
-            y = y.permute(0,2,1)
-            
-            y = self.norm(y)  
-            
-            y = y.permute(0,2,1)
             out = self.out_proj(y)
         return out
 
