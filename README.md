@@ -65,7 +65,7 @@ Open exp/exp_long_term_forecasting.py
 ```python
 # Input your own project name and entity here!
 wandb.init(project="your own project name", name=self.args.runname, entity="your entity")
-
+```
 6.Train and evaluate model. 
 We provide the experiment scripts models under the folder `./scripts/`. You can reproduce the experiment results as the following examples:
 bash ./scripts/long_term_forecast/ECL_script/Mamba.sh
