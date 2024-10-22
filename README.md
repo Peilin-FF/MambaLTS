@@ -66,7 +66,7 @@ Open exp/exp_long_term_forecasting.py
 # Input your own project name and entity here!
 wandb.init(project="your own project name", name=self.args.runname, entity="your entity")
 ```
-6.Train and evaluate model. 
+## Train and evaluate model
 We provide the experiment scripts models under the folder `./scripts/`. You can reproduce the experiment results as the following examples:
 bash ./scripts/long_term_forecast/ECL_script/Mamba.sh
 
@@ -91,7 +91,20 @@ We used an NVIDIA RTX 3090 GPU and the PyTorch framework. The hyperparameters fo
 - **$d_{state}$**: Set to 16
 - **Number of layers ($n_{layer}$)**: Set between 1 or 2 
 
-7.Result Shots
+## Result Shots
+
+All the results are averaged from 4 different predictionlengths, that is \{96, 192, 336, 720\}. A lower MSE or MAE indicates a better prediction. We fix theinput length as 96 for all experiments.
+| Models         | TimeMixer (2024a) | iTransformer (2023) | PatchTST (2023) | TimesNet (2023) | Mamba2 (2023) | Mamba1 (?) | Crossformer (?) | MICN (?) | Autoformer (?) | Informer (?) |
+|----------------|-------------------|---------------------|-----------------|-----------------|---------------|------------|-----------------|----------|----------------|--------------|
+| **Metric**     | MSE    | MAE    | MSE    | MAE    | MSE    | MAE    | MSE    | MAE    | MSE    | MAE    | MSE    | MAE    | MSE    | MAE    | MSE    | MAE    | MSE    | MAE    | MSE    | MAE    |
+| **Electricity**| 0.182  | 0.272  | 0.148  | 0.240  | 0.216  | 0.318 | 0.193 | 0.304 | 0.177 | 0.272 | 0.185 | 0.287 | 0.204 | 0.334 | 0.196 | 0.309 | 0.227 | 0.338 | 0.311 | 0.397 | 0.260 |
+| **Weather**    | 0.240  | 0.271  | 0.174  | 0.214  | 0.265  | 0.285 | 0.251 | 0.294 | 0.191 | 0.241 | 0.194 | 0.242 | 0.264 | 0.320 | 0.268 | 0.321 | 0.338 | 0.382 | 0.630 | 0.548 | 0.395 |
+| **Traffic**    | 0.484  | 0.297  | 0.395  | 0.668  | 0.529  | 0.341 | 0.620 | 0.360 | 0.481 | 0.303 | 0.667 | 0.426 | 0.548 | 0.450 | 0.459 | 0.457 | 0.589 | 0.471 | 0.634 | 0.596 | 0.473 | x.xxx |
+| **ETTh1**      | 0.147  | 0.440  | 0.368  | 0.405  | 0.156  | 0.484 | 0.495 | 0.450 | 0.161 | 0.381 | 0.493 | 0.482 | 0.614 | 0.438 | 0.594 | 0.470 | 0.479 | 0.644 | 0.519 | 0.481 | 0.795 | x.xxx |
+| **ETTh2**      | 0.364  | 0.395  | 0.297  | 0.349  | 0.391  | 0.411 | 0.410 | 0.427 | 0.346 | 0.377 | 0.367 | 0.388 | 0.642 | 0.684 | 0.574 | 0.605 | 0.459 | 0.574 | 0.589 | 0.573 | 1.729 | x.xxx |
+| **ETTm1**      | 0.381  | 0.395  | 0.334  | 0.368  | 0.406  | 0.407 | 0.400 | 0.344 | 0.377 | 0.395 | 0.413 | 0.454 | 0.429 | 0.588 | 0.517 | 0.422 | 0.588 | 0.571 | 0.691 | 0.734 | x.xxx |
+| **ETTm2**      | 0.275  | 0.323  | 0.180  | 0.264  | 0.291  | 0.292 | 0.334 | 0.291 | 0.204 | 0.280 | x.xxx | x.xxx | 0.757 | 0.610 | 0.353 | 0.402 | 0.327 | 0.371 | 0.410 | 0.810 | x.xxx |
+
 ECL Result:
 <p align="center">
 <img src="./pics/ECL.png"  alt="" align=center />
