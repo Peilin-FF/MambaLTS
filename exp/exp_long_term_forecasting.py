@@ -21,7 +21,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         
     def _build_model(self):
         model = self.model_dict[self.args.model].Model(self.args).float()
-        wandb.init(project="Mamba2_mutilayers",name=self.args.runname,entity="peilin-ff-beihang-university")
+        wandb.init(project="your own projection name",name=self.args.runname,entity="your entity")
         
         wandb.watch(models=model,criterion=nn.MSELoss,log="all",log_freq=50,log_graph=True)
         if self.args.use_multi_gpu and self.args.use_gpu:
