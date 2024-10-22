@@ -84,16 +84,18 @@ We used an NVIDIA RTX 3090 GPU and the PyTorch framework. The hyperparameters fo
 - **Maximum epochs**: 10
 - **Early stopping mechanism**: Enabled
 
-**Model parameters**:
+**Good Set of Hyperparameters**:
 
 - **Embedding and Mamba's $d_{model}$**: Set to 128
-- **Mamba's expand parameter**: Set to 1 or 2
+- **Mamba's expand parameter**: Set to 1
 - **$d_{state}$**: Set to 16
-- **Number of layers ($n_{layer}$)**: Set between 1 and 3
+- **Number of layers ($n_{layer}$)**: Set between 1 or 2 
 
 7.Result Shots
 ECL Result:
-
+<p align="center">
+<img src="./pics/ECL.png"  alt="" align=center />
+</p>
 
 ## Contact
 If you have any questions, feel free to either initiate an *Issue* or contact us by Email (Email: *fengpeilin@buaa.edu.cn*).
